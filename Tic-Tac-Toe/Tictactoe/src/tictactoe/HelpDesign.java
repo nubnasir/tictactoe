@@ -20,14 +20,14 @@ public class HelpDesign implements Runnable {
     public HelpDesign(HelpA h) {
         help = h;
         examName = "n.TicTacToe";
-        examDetails = "Visit www.csejnu02.wordpress.com to update.";
+        examDetails = "";
     }
 
     @Override
     public void run() {
         int i = 0;
         while (true) {
-            help.megaTitle.setText(help.megaTitle.getText() + examName.toCharArray()[i]);
+            help.getMegaTitle().setText(help.getMegaTitle().getText() + examName.toCharArray()[i]);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
@@ -38,24 +38,23 @@ public class HelpDesign implements Runnable {
                 break;
             }
         }
-        help.JnU.setText("Jagannth University");
 
         int j = 0, k = 0;
         while (true) {
             if (j % 2 == 0) {
-                help.myName.setForeground(Color.red);
+                help.getMyName().setForeground(Color.red);
             } else if (j % 3 == 0) {
-                help.myName.setForeground(Color.BLUE);
+                help.getMyName().setForeground(Color.BLUE);
             } else {
-                help.myName.setForeground(Color.BLACK);
+                help.getMyName().setForeground(Color.BLACK);
             }
             if (k <= examDetails.length()) {
-                help.details.setText(help.details.getText() + examDetails.toCharArray()[k]);
+                help.getDetails().setText(help.getDetails().getText() + examDetails.toCharArray()[k]);
                 k++;
             }
             if (k == examDetails.length()) {
                 k = 0;
-                help.details.setText("");
+                help.getDetails().setText("");
             }
 
             try {
