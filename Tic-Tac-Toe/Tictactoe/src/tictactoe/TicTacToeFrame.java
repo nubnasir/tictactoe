@@ -4,7 +4,7 @@
  */
 
 /*
- * MyTicToc.java
+ * TicTacToeFrame.java
  *
  * Created on Jan 3, 2012, 7:34:17 AM
  */
@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Nasir
  */
-public class MyTicToc extends javax.swing.JFrame {
+public class TicTacToeFrame extends javax.swing.JFrame {
 
     public int take = 1;
     public int turn = 0;
@@ -32,12 +32,12 @@ public class MyTicToc extends javax.swing.JFrame {
     public int reminder7 = 0;
     public int reminder8 = 0;
     public int reminder9 = 0;
-    public int x = 0;
-    public int o = 0;
+    public int xPoints = 0;
+    public int oPoints = 0;
     public int win = 0;
-    public int CPU = 1;
-    public int CPUHard = 1;
-    public int Death_Match = 1;
+    public int cpu = 1;
+    public int cpuHard = 1;
+    public int deathMatch = 1;
     public int user = 1;
     public Random rand;
     public Random randDeath;
@@ -45,8 +45,8 @@ public class MyTicToc extends javax.swing.JFrame {
     public int randomDeathValue;
 
     /** Creates new form MyTicToc */
-    public MyTicToc() {
-        super.setTitle("n.TicTocToe");
+    public TicTacToeFrame() {
+        super.setTitle("n.TicTacToe");
         setLocationRelativeTo(null);
         initComponents();
     }
@@ -64,9 +64,9 @@ public class MyTicToc extends javax.swing.JFrame {
         Exit = new javax.swing.JButton();
         playAgain = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        xLabel = new javax.swing.JLabel();
         pointX = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        oLabel = new javax.swing.JLabel();
         pointO = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -80,15 +80,15 @@ public class MyTicToc extends javax.swing.JFrame {
         vs = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        playAgainMenuItem = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        playerVsPlayerMenuItem = new javax.swing.JMenuItem();
+        playerVsCpuEasyMenuItem = new javax.swing.JMenuItem();
+        playerVsCpuHardMenuItem = new javax.swing.JMenuItem();
+        deathMatchMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        creditsMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -118,17 +118,17 @@ public class MyTicToc extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("X =");
+        xLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        xLabel.setForeground(new java.awt.Color(255, 0, 0));
+        xLabel.setText("X =");
 
         pointX.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         pointX.setForeground(new java.awt.Color(255, 0, 0));
         pointX.setText("0");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 23)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel2.setText("O =");
+        oLabel.setFont(new java.awt.Font("Tahoma", 0, 23)); // NOI18N
+        oLabel.setForeground(new java.awt.Color(0, 153, 51));
+        oLabel.setText("O =");
 
         pointO.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         pointO.setForeground(new java.awt.Color(0, 153, 51));
@@ -140,24 +140,24 @@ public class MyTicToc extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pointO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pointX, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
+                    .addComponent(xLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(oLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pointX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pointO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pointX, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(xLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pointO)
-                    .addComponent(jLabel2)))
+                    .addComponent(oLabel)))
         );
 
         jButton8.setFont(new java.awt.Font("Comic Sans MS", 0, 36)); // NOI18N
@@ -228,69 +228,69 @@ public class MyTicToc extends javax.swing.JFrame {
 
         jMenu1.setText("Game");
 
-        jMenuItem3.setText("Play Again");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        playAgainMenuItem.setText("Play Again");
+        playAgainMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                playAgainMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(playAgainMenuItem);
 
-        jMenuItem4.setText("Exit");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        exitMenuItem.setText("Exit");
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                exitMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(exitMenuItem);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Play");
 
-        jMenuItem1.setText("Player Vs Player");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        playerVsPlayerMenuItem.setText("Player Vs Player");
+        playerVsPlayerMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                playerVsPlayerMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(playerVsPlayerMenuItem);
 
-        jMenuItem2.setText("Player Vs CPU Easy");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        playerVsCpuEasyMenuItem.setText("Player Vs CPU Easy");
+        playerVsCpuEasyMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                playerVsCpuEasyMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(playerVsCpuEasyMenuItem);
 
-        jMenuItem6.setText("Player Vs CPU Hard");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        playerVsCpuHardMenuItem.setText("Player Vs CPU Hard");
+        playerVsCpuHardMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                playerVsCpuHardMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        jMenu2.add(playerVsCpuHardMenuItem);
 
-        jMenuItem7.setText("Death Match");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        deathMatchMenuItem.setText("Death Match");
+        deathMatchMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                deathMatchMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem7);
+        jMenu2.add(deathMatchMenuItem);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Help");
 
-        jMenuItem8.setText("Credits");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        creditsMenuItem.setText("Credits");
+        creditsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                creditsMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem8);
+        jMenu3.add(creditsMenuItem);
 
         jMenuBar1.add(jMenu3);
 
@@ -310,32 +310,31 @@ public class MyTicToc extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(playAgain))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jLabel3))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(playAgain))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(81, 81, 81)
+                                    .addComponent(jLabel3)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(53, 53, 53)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -474,10 +473,10 @@ public class MyTicToc extends javax.swing.JFrame {
 
         win = 0;
 
-        if (turn == 1 && CPU == 0 && CPUHard == 0 && Death_Match == 0) {
+        if (turn == 1 && cpu == 0 && cpuHard == 0 && deathMatch == 0) {
             turn = 0;
             take = 2;
-        } else if (turn == 2 && CPU == 0 && CPUHard == 0 && Death_Match == 0) {
+        } else if (turn == 2 && cpu == 0 && cpuHard == 0 && deathMatch == 0) {
             turn = 0;
             take = 1;
         }
@@ -509,101 +508,101 @@ public class MyTicToc extends javax.swing.JFrame {
         jButton8.setBackground(null);
         jButton9.setText("");
         jButton9.setBackground(null);
-        if (turn == 2 && CPU == 1) {
+        if (turn == 2 && cpu == 1) {
             take = 2;
             turn = 0;
             vsCPU();
             turn = 1;
-        } else if (turn == 1 && CPU == 1) {
+        } else if (turn == 1 && cpu == 1) {
             take = 1;
             turn = 0;
-        } else if (turn == 2 && CPUHard == 1) {
+        } else if (turn == 2 && cpuHard == 1) {
             take = 2;
             turn = 0;
             vsCPUHard();
             turn = 1;
-        } else if (turn == 1 && CPUHard == 1) {
+        } else if (turn == 1 && cpuHard == 1) {
             take = 1;
             turn = 0;
-        } else if (turn == 2 && Death_Match == 1) {
+        } else if (turn == 2 && deathMatch == 1) {
             take = 2;
             turn = 0;
             vsDeathMatch();
             turn = 1;
-        } else if (turn == 1 && Death_Match == 1) {
+        } else if (turn == 1 && deathMatch == 1) {
             take = 1;
             turn = 0;
         }
 
 }//GEN-LAST:event_playAgainActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void playerVsPlayerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerVsPlayerMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
-        CPU = 0;
-        CPUHard = 0;
-        Death_Match = 0;
+        cpu = 0;
+        cpuHard = 0;
+        deathMatch = 0;
         vs.setText("PLAYER");
         playAgainActionPerformed(evt);
-        x = 0;
-        pointX.setText("" + x);
-        o = 0;
-        pointO.setText("" + o);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        xPoints = 0;
+        pointX.setText("" + xPoints);
+        oPoints = 0;
+        pointO.setText("" + oPoints);
+    }//GEN-LAST:event_playerVsPlayerMenuItemActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void playerVsCpuEasyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerVsCpuEasyMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
-        CPU = 1;
-        CPUHard = 0;
-        Death_Match = 0;
+        cpu = 1;
+        cpuHard = 0;
+        deathMatch = 0;
         vs.setText("vs CPU(Easy)");
         playAgainActionPerformed(evt);
-        x = 0;
-        pointX.setText("" + x);
-        o = 0;
-        pointO.setText("" + o);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        xPoints = 0;
+        pointX.setText("" + xPoints);
+        oPoints = 0;
+        pointO.setText("" + oPoints);
+    }//GEN-LAST:event_playerVsCpuEasyMenuItemActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void playAgainMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
         playAgainActionPerformed(evt);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_playAgainMenuItemActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
         ExitActionPerformed(evt);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void playerVsCpuHardMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerVsCpuHardMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
-        CPUHard = 1;
-        CPU = 0;
-        Death_Match = 0;
+        cpuHard = 1;
+        cpu = 0;
+        deathMatch = 0;
         vs.setText("vs CPU(Hard)");
         playAgainActionPerformed(evt);
-        x = 0;
-        pointX.setText("" + x);
-        o = 0;
-        pointO.setText("" + o);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+        xPoints = 0;
+        pointX.setText("" + xPoints);
+        oPoints = 0;
+        pointO.setText("" + oPoints);
+    }//GEN-LAST:event_playerVsCpuHardMenuItemActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void deathMatchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deathMatchMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
-        Death_Match = 1;
-        CPU = 0;
-        CPUHard = 0;
+        deathMatch = 1;
+        cpu = 0;
+        cpuHard = 0;
         vs.setText("Death Match");
         playAgainActionPerformed(evt);
-        x = 0;
-        pointX.setText("" + x);
-        o = 0;
-        pointO.setText("" + o);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+        xPoints = 0;
+        pointX.setText("" + xPoints);
+        oPoints = 0;
+        pointO.setText("" + oPoints);
+    }//GEN-LAST:event_deathMatchMenuItemActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void creditsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsMenuItemActionPerformed
         // TODO add your handling code here: Md. Nasir Uddin Bhuiyan Email: nubnasir@gmail.com
-        HelpA hp = new HelpA();
+        CreditsFrame hp = new CreditsFrame();
         hp.setVisible(true);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_creditsMenuItemActionPerformed
 
     private void setjButtonText(JButton jButton) {
         if (take == 1) {
@@ -614,13 +613,13 @@ public class MyTicToc extends javax.swing.JFrame {
                 if (win == 0) {
                     take = 2;
                 }
-                if (CPU == 1 && win == 0) {
+                if (cpu == 1 && win == 0) {
                     vsCPU();
                     take = 1;
-                } else if (CPUHard == 1 && win == 0) {
+                } else if (cpuHard == 1 && win == 0) {
                     vsCPUHard();
                     take = 1;
-                } else if (Death_Match == 1 && win == 0) {
+                } else if (deathMatch == 1 && win == 0) {
                     vsDeathMatch();
                     take = 1;
                 }
@@ -650,22 +649,22 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton1.getText().equals(jButton2.getText()) && jButton1.getText().equals(jButton3.getText())) {
 
                 setWinnerColor(jButton1, jButton2, jButton3);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
             if (jButton1.getText().equals(jButton4.getText()) && jButton1.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton4, jButton1, jButton7);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
             if (jButton1.getText().equals(jButton5.getText()) && jButton1.getText().equals(jButton9.getText())) {
 
                 setWinnerColor(jButton1, jButton5, jButton9);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
         }
@@ -673,22 +672,22 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton1.getText().equals(jButton2.getText()) && jButton1.getText().equals(jButton3.getText())) {
 
                 setWinnerColor(jButton1, jButton2, jButton3);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
             if (jButton1.getText().equals(jButton4.getText()) && jButton1.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton1, jButton4, jButton7);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
             if (jButton1.getText().equals(jButton5.getText()) && jButton1.getText().equals(jButton9.getText())) {
 
                 setWinnerColor(jButton1, jButton5, jButton9);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
         }
@@ -696,15 +695,15 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton5.getText().equals(jButton4.getText()) && jButton5.getText().equals(jButton6.getText())) {
 
                 setWinnerColor(jButton4, jButton5, jButton6);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
             if (jButton5.getText().equals(jButton2.getText()) && jButton5.getText().equals(jButton8.getText())) {
 
                 setWinnerColor(jButton2, jButton5, jButton8);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
         }
@@ -712,15 +711,15 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton5.getText().equals(jButton4.getText()) && jButton5.getText().equals(jButton6.getText())) {
 
                 setWinnerColor(jButton4, jButton5, jButton6);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
             if (jButton5.getText().equals(jButton2.getText()) && jButton5.getText().equals(jButton8.getText())) {
 
                 setWinnerColor(jButton2, jButton5, jButton8);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
         }
@@ -728,15 +727,15 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton9.getText().equals(jButton8.getText()) && jButton9.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton7, jButton8, jButton9);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
             if (jButton9.getText().equals(jButton6.getText()) && jButton9.getText().equals(jButton3.getText())) {
 
                 setWinnerColor(jButton3, jButton6, jButton9);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
         }
@@ -744,15 +743,15 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton9.getText().equals(jButton8.getText()) && jButton9.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton7, jButton8, jButton9);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
             if (jButton9.getText().equals(jButton6.getText()) && jButton9.getText().equals(jButton3.getText())) {
 
                 setWinnerColor(jButton3, jButton6, jButton9);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
         }
@@ -760,8 +759,8 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton3.getText().equals(jButton5.getText()) && jButton3.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton3, jButton5, jButton7);
-                x++;
-                pointX.setText("" + x);
+                xPoints++;
+                pointX.setText("" + xPoints);
                 win = 1;
             }
         }
@@ -769,8 +768,8 @@ public class MyTicToc extends javax.swing.JFrame {
             if (jButton3.getText().equals(jButton5.getText()) && jButton3.getText().equals(jButton7.getText())) {
 
                 setWinnerColor(jButton3, jButton5, jButton7);
-                o++;
-                pointO.setText("" + o);
+                oPoints++;
+                pointO.setText("" + oPoints);
                 win = 1;
             }
         }
@@ -1047,6 +1046,9 @@ public class MyTicToc extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exit;
+    private javax.swing.JMenuItem creditsMenuItem;
+    private javax.swing.JMenuItem deathMatchMenuItem;
+    private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1056,24 +1058,21 @@ public class MyTicToc extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel oLabel;
     private javax.swing.JButton playAgain;
+    private javax.swing.JMenuItem playAgainMenuItem;
+    private javax.swing.JMenuItem playerVsCpuEasyMenuItem;
+    private javax.swing.JMenuItem playerVsCpuHardMenuItem;
+    private javax.swing.JMenuItem playerVsPlayerMenuItem;
     private javax.swing.JLabel pointO;
     private javax.swing.JLabel pointX;
     private javax.swing.JLabel vs;
+    private javax.swing.JLabel xLabel;
     // End of variables declaration//GEN-END:variables
 }
