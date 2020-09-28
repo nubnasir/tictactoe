@@ -6,4 +6,4 @@
 <b>Swing</b>
 
 #run by command (this .jar file can be found in dist directory)
-> java --jar TicTacToe.jar
+> java -jar TicTacToe.jar
